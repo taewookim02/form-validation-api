@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constraint Validation</title>
+  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <form novalidate class="form">
+    <div class="input-container email-div"><label for="email">Email:</label><input type="email" name="email" id="email">
+    </div>
+    <div class="input-container country-div">
+      <label for="country">Country:</label>
+      <select name="country" id="country">
+        <option value="fr">France</option>
+        <option value="ne">Netherlands</option>
+        <option value="us">US</option>
+        <option value="ca">Canada</option>
+        <option value="kr">Korea</option>
+        <option value="uk">United Kingdom</option>
+        <option value="cn">China</option>
+      </select>
+    </div>
+    <div class="input-container zipcode-div"><label for="zipcode">Zipcode:</label><input type="text" name="zipcode"
+        id="zipcode"></div>
+    <div class="input-container password-div"><label for="password">Password:</label><input type="password"
+        name="password" id="password"></div>
+    <div class="input-container password-confirm-div">
+      <label for="password-confirm">Confirm password:</label>
+      <input type="password" name="password-confirm" id="password-confirm" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
