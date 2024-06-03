@@ -19,30 +19,27 @@
     <div class="input-container country-div">
       <label for="country">Country:</label>
       <select name="country" id="country" required>
-        <option value="" disabled selected>--Select an option--</option>
+        <option value="ch">Switzerland</option>
         <option value="fr">France</option>
-        <option value="ne">Netherlands</option>
-        <option value="us">US</option>
-        <option value="ca">Canada</option>
-        <option value="kr">Korea</option>
+        <option value="nl">Netherlands</option>
+        <option value="de">Germany</option>
         <option value="uk">United Kingdom</option>
-        <option value="cn">China</option>
       </select>
       <span class="err-msg country-error"></span>
     </div>
     <div class="input-container zipcode-div">
       <label for="zipcode">Zipcode:</label>
-      <input type="text" name="zipcode" id="zipcode">
+      <input type="text" name="zipcode" id="zipcode" required minlength="2">
       <span class="err-msg zipcode-error"></span>
     </div>
     <div class="input-container password-div">
       <label for="password">Password:</label>
-      <input type="password" name="password" id="password">
+      <input type="password" required name="password" id="password">
       <span class="err-msg password-error"></span>
     </div>
     <div class="input-container password-confirm-div">
       <label for="password-confirm">Confirm password:</label>
-      <input type="password" name="password-confirm" id="password-confirm" />
+      <input type="password" required name="password-confirm" id="password-confirm" />
       <span class="password-err-msg confirm-error"></span>
     </div>
     <button type="submit">Submit</button>
