@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const zipcodeMsg = document.querySelector(".zipcode-error");
   const password = document.querySelector("#password");
   const passwordMsg = document.querySelector(".password-error");
+  const passwordConfirm = document.querySelector("#password-confirm");
+  const passwordConfirmMsg = document.querySelector(".confirm-error");
 
   // validations
   const validateZip = () => {
@@ -78,8 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const validatePassword = () => {
-    const passwordRegex = "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$";
+    const passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$";
     const constraint = new RegExp(passwordRegex);
+    console.log(constraint.test(password.value));
     if (!constraint.test(password.value)) {
       // passwordMsg.textContent =
       //   "Min 8 characters, at least 1 letter and 1 number";
@@ -92,26 +95,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const validatePasswordConfirm = () => {
+    // same with password
+    if (password.value !== passwordConfirm.value) {
+      passwordConfirm.setCustomValidity("Password is different.");
+      passwordConfirmMsg.textContent = "Password is different.";
+    } else {
+      passwordConfirm.setCustomValidity("");
+      passwordConfirmMsg.textContent = "";
+    }
+  };
+
   const checkValidityOfInputs = () => {
     return (
       !email.validity.valid ||
       !country.validity.valid ||
       !zipcode.validity.valid ||
-      !password.validity.valid
+      !password.validity.valid ||
+      !passwordConfirm.validity.valid
     );
   };
 
   // eventListeners
   email.addEventListener("input", validateEmail);
   country.addEventListener("change", validateCountry);
-  zipcode.addEventListener("focusout", validateZip);
+  zipcode.addEventListener("input", validateZip);
   password.addEventListener("focusout", validatePassword);
+  passwordConfirm.addEventListener("focusout", validatePasswordConfirm);
 
   form.addEventListener("submit", (e) => {
     validateEmail();
     validateCountry();
     validateZip();
     validatePassword();
+    validatePasswordConfirm();
 
     if (checkValidityOfInputs()) {
       e.preventDefault();
@@ -120,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       country.reportValidity();
       zipcode.reportValidity();
       password.reportValidity();
+      passwordConfirm.reportValidity();
     }
   });
 });
