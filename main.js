@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const constraint = new RegExp(constraints[countryVal][0], "");
 
     if (!constraint.test(zipcode.value)) {
-      // zipcodeMsg.textContent = constraints[countryVal][1];
+      zipcodeMsg.textContent = constraints[countryVal][1];
       zipcode.setCustomValidity(constraints[countryVal][1]);
     } else {
-      // zipcodeMsg.textContent = "";
+      zipcodeMsg.textContent = "";
       zipcode.setCustomValidity("");
     }
   };
@@ -84,13 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const constraint = new RegExp(passwordRegex);
     console.log(constraint.test(password.value));
     if (!constraint.test(password.value)) {
-      // passwordMsg.textContent =
-      //   "Min 8 characters, at least 1 letter and 1 number";
+      passwordMsg.textContent =
+        "Min 8 characters, at least 1 letter and 1 number";
       password.setCustomValidity(
         "Min 8 characters, at least 1 letter and 1 number"
       );
     } else {
-      // passwordMsg.textContent = "";
+      passwordMsg.textContent = "";
       password.setCustomValidity("");
     }
   };
@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
   email.addEventListener("input", validateEmail);
   country.addEventListener("change", validateCountry);
   zipcode.addEventListener("input", validateZip);
-  password.addEventListener("focusout", validatePassword);
-  passwordConfirm.addEventListener("focusout", validatePasswordConfirm);
+  password.addEventListener("input", validatePassword);
+  passwordConfirm.addEventListener("input", validatePasswordConfirm);
 
   form.addEventListener("submit", (e) => {
     validateEmail();
