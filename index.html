@@ -11,11 +11,15 @@
 
 <body>
   <form novalidate class="form">
-    <div class="input-container email-div"><label for="email">Email:</label><input type="email" name="email" id="email">
+    <div class="input-container email-div">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" minlength="3" maxlength="254" required>
+      <span class="err-msg email-error"></span>
     </div>
     <div class="input-container country-div">
       <label for="country">Country:</label>
-      <select name="country" id="country">
+      <select name="country" id="country" required>
+        <option value="" disabled selected>--Select an option--</option>
         <option value="fr">France</option>
         <option value="ne">Netherlands</option>
         <option value="us">US</option>
@@ -24,14 +28,22 @@
         <option value="uk">United Kingdom</option>
         <option value="cn">China</option>
       </select>
+      <span class="err-msg country-error"></span>
     </div>
-    <div class="input-container zipcode-div"><label for="zipcode">Zipcode:</label><input type="text" name="zipcode"
-        id="zipcode"></div>
-    <div class="input-container password-div"><label for="password">Password:</label><input type="password"
-        name="password" id="password"></div>
+    <div class="input-container zipcode-div">
+      <label for="zipcode">Zipcode:</label>
+      <input type="text" name="zipcode" id="zipcode">
+      <span class="err-msg zipcode-error"></span>
+    </div>
+    <div class="input-container password-div">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
+      <span class="err-msg password-error"></span>
+    </div>
     <div class="input-container password-confirm-div">
       <label for="password-confirm">Confirm password:</label>
       <input type="password" name="password-confirm" id="password-confirm" />
+      <span class="password-err-msg confirm-error"></span>
     </div>
     <button type="submit">Submit</button>
   </form>

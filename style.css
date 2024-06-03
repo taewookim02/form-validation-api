@@ -22,4 +22,31 @@ body {
 .input-container {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+input:invalid,
+select:invalid {
+  /* border: 1px solid red; */
+  border-radius: 2px;
+}
+
+input:required {
+  border: 1px solid black;
+}
+
+input:valid,
+select:valid {
+  /* border: 1px solid green; */
+  /* border-radius: 2px; */
+}
+
+.err-msg {
+  position: absolute;
+  bottom: -14px;
+  left: 5px;
+  text-wrap: nowrap;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  color: red;
 }
